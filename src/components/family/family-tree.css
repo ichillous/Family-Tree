@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#treeWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+
+    box-sizing: border-box;
+  }
+.node__root circle {
+  fill: #ffc700 !important;
+}
+
+.node__branch circle {
+  fill: #f5e8c7 !important;
+}
+
+.node__leaf circle {
+  fill: #76abae !important;
+}
+
+/* FORCING white text color */
+.node-name,
+.node-attribute,
+text,
+.rd3t-label__title,
+.rd3t-label__attributes {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  stroke: none !important;
+}
+
+.node-name {
+  font-weight: 400 !important;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+}
+
+.node-attribute {
+  font-size: 12px;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px;
+}
+
+.rd3t-link {
+  stroke: #eeeeee !important;
+  stroke-width: 1.5px;
+}
+
+#treeWrapper > svg {
+  background-color: transparent;
+}
+
+svg text {
+  text-rendering: geometricPrecision;
+}
+
+svg {
+  background: #222831 !important;
+}
+
+/* Additional force for SVG text */
+g.rd3t-g text {
+  fill: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  #treeWrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  .node-name {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .node-attribute {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Adjust circle size for mobile */
+  g.rd3t-g circle {
+    r: 20 !important;
+  }
+
+  /* Adjust text position for mobile */
+  .node-name {
+    transform: translate(2px, 0px);
+  }
+
+  .node-attribute {
+    transform: translate(2px, 2px);
+  }
+
+  /* Reduce separation between nodes */
+  .rd3t-tree-container > g > g {
+    transform: scale(0.5);
+  }
+}
+
+/* Smooth transitions for node movements */
+.rd3t-node {
+  transition: all 0.5s ease;
+}
+
+.rd3t-link {
+  transition: d 0.5s ease;
+}
